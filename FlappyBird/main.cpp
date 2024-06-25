@@ -11,7 +11,7 @@ int main() {
     float velocidade = 0;
     bool vivo = true;
 
-    InitWindow(width, height, "Flap Bird");
+    InitWindow(width, height, "Flappy Bird");
     SetTargetFPS(60);
     Texture2D player = LoadTexture("personagem.png");
 
@@ -30,7 +30,7 @@ int main() {
             }
 
             // Verifica se o jogador colidiu com o chão ou o teto
-            if (Y + player.height >= height || Y < 0) {
+            if (Y > 480 || Y < -110) {
                 vivo = false;
             }
         } else {
@@ -55,7 +55,7 @@ int main() {
 
         // Mostra a mensagem de Game Over
         if (!vivo) {
-            DrawText("GAME OVER! Press R to restart", 100, height / 2 - 20, 20, RED);
+            DrawText("GAME OVER! Press R to restart", 100, 380, 20, RED);
         }
 
         EndDrawing();
