@@ -3,7 +3,7 @@
 
 int main() {
 
-    const int width = 600;
+    const int width = 800;
     const int height = 800;
 
     float X = 40;
@@ -11,8 +11,9 @@ int main() {
     float velocidade = 0;
     bool vivo = true;
 
-    InitWindow(width, height, "Flappy Bird");
+    InitWindow(width, height, "Flap Bird");
     SetTargetFPS(60);
+    Texture2D cenario = LoadTexture("cenario.gif");
     Texture2D player = LoadTexture("personagem.png");
 
     while (!WindowShouldClose()) {
@@ -46,6 +47,7 @@ int main() {
         BeginDrawing();
 
         ClearBackground(WHITE);
+        DrawTexture(cenario, 0, 0, RAYWHITE);
         DrawTextureRec(
             player,
             Rectangle{ 0, 0, (float)player.width, (float)player.height },
